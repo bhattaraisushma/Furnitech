@@ -13,9 +13,9 @@ const Mainpage = () => {
     const {islogged, setIslogged} = useContext(Context)
   
   return (
-    < >
+    <div id='/mainpage'>
     { islogged ?(
-        <div id='/mainpage' className='h-full w-full right-5 px-[5rem]'>
+        <div  className='h-full w-full right-5 px-[5rem]'>
      <Navigation/>
         <div>
       <Products/>
@@ -26,7 +26,7 @@ const Mainpage = () => {
     ) :(" ") 
     }
     
-    </>
+    </div>
   )
 }
 

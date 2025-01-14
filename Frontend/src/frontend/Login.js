@@ -4,10 +4,16 @@ import { useNavigate} from 'react-router-dom'
 import Context from './ContexAPI/Contex'
 import Signup from './Signup'
 const Login = () => {
-  const{ createAcc,setCreateAcc }=useContext(Context)
+  const{ createAcc,setCreateAcc,islogged,setIslogged  }=useContext(Context)
   const navigate = useNavigate()
   const gotosignin=()=>{
     setCreateAcc(true)
+  }
+  const gotoMain=()=>{
+    setIslogged(true)
+    console.log('clicked login')
+navigate('/mainpage')
+
   }
   return (
     <div className='h-screen w-screen  flex justify-center items-center 'id='/login'>
@@ -43,7 +49,7 @@ const Login = () => {
        </div>
        <label for="remember" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
      </div>
-     <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+     <button type="submit" onClick={gotoMain} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
    
    </form>
    

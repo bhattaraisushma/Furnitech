@@ -27,7 +27,7 @@ if(islogged)
   }
 
   return (
-    <div className="flex flex-row   justify-between items-center  px-[3rem] bg-[#393E46]  h-[5rem] w-[100%]  shadow-xl gap-[6rem] text-white  text-xl font-semibold fixed ">
+    <div className="flex flex-row z-[1000]  justify-between items-center  px-[3rem] bg-[#393E46]  h-[5rem] w-[100%]  shadow-xl gap-[6rem] text-white  text-xl font-semibold fixed ">
       <h1 className=" w-[50%]  font-font-title text-[3rem] ">Furni</h1>
     
     <div className='flex flex-row gap-4 ' onClick={login}><Button className='w-[7rem]'><p className='text-xl text-white'>Login</p></Button>
