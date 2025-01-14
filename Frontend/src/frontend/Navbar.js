@@ -27,11 +27,11 @@ if(islogged)
   }
 
   return (
-    <div className="flex flex-row z-[1000]  justify-between items-center  px-[3rem] bg-[#393E46]  h-[5rem] w-[100%]  shadow-xl gap-[6rem] text-white  text-xl font-semibold fixed ">
-      <h1 className=" w-[50%]  font-font-title text-[3rem] ">Furni</h1>
+    <div className="flex flex-row z-[1000]  justify-between items-center  px-[3rem] text-black h-[5rem] w-[100%]  shadow-xl gap-[6rem]   text-xl font-semibold fixed ">
+      <h1 className=" w-[50%] text-[#00ADB5] font-font-title text-[3rem]  ">Furni</h1>
     
-    <div className='flex flex-row gap-4 ' onClick={login}><Button className='w-[7rem]'><p className='text-xl text-white'>Login</p></Button>
-     <Button className='bg-transparent border-[#00ADB5] border-4' onClick={signup}><p className='text-xl  text-white '>SignUp</p></Button>
+    <div className='flex flex-row gap-4 ' onClick={login}><Button className='w-[7rem]'><p className='text-xl text-[#00ADB5]'>Login</p></Button>
+     <Button className='bg-transparent border-[#00ADB5] border-4' onClick={signup}><p className='text-xl  text-[#00ADB5] '>SignUp</p></Button>
      </div> 
     </div>
   )
