@@ -1,18 +1,43 @@
-import React,{useContext} from 'react'
+import React,{useContext, useState} from 'react'
 import Navbar from './Navbar'
 import { useNavigate} from 'react-router-dom'
 import Context from './ContexAPI/Contex'
 import Signup from './Signup'
+import axios from 'axios'
 const Login = () => {
   const{ createAcc,setCreateAcc,islogged,setIslogged  }=useContext(Context)
+  const[email,setEmail]=useState('')
+  const[password,setPassword]=useState('')
   const navigate = useNavigate()
   const gotosignin=()=>{
     setCreateAcc(true)
   }
-  const gotoMain=()=>{
+
+ 
+  const gotoMain=async()=>{
+    alert(email,password)
+try{
+ 
+  const allUser=await axios.get("http://localhost:5000/loginDetails");
+  console.log(allUser.data)
+
+const matchingdata=allUser.data.find((user)=>user.email===email && user.password===password)
+console.log(matchingdata)
+  if(matchingdata){
     setIslogged(true)
     console.log('clicked login')
-navigate('/mainpage')
+  navigate('/mainpage')
+  }
+  else{
+    alert('Invalid credentials')
+  }
+}
+
+catch(err){
+  console.log("Cannot get users");
+}
+
+    
 
   }
   return (
@@ -40,11 +65,11 @@ navigate('/mainpage')
    
      <div className="mb-5 text-2xl ">
      
-       <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block h-[3rem] w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
+       <input type="email" id="email" value ={email} onChange={(e)=>setEmail(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block h-[3rem] w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
      </div>
      <div className="mb-5 text-start">
    
-       <input type="password" id="password" placeholder='password' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block h-[3rem] w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+       <input type="password" id="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='password' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block h-[3rem] w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
      </div>
      <div className="flex items-start mb-5">
        <div className="flex items-center h-5">

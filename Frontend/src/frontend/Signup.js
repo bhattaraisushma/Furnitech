@@ -14,11 +14,11 @@ const Signup = () => {
   const navigate = useNavigate()
 
   const addtodb = async () => {
-  alert(name+email+password)
+    alert(name + email + password)
     try {
       await axios.post(
         'http://localhost:5000/signupDetails',
-        
+
         {
           name,
           email,
@@ -30,17 +30,15 @@ const Signup = () => {
           },
         },
       )
-
+      setCreateAcc(false)
       console.log(' signup data added tp db')
-    
     } catch (err) {
       console.log(err)
     }
   }
-  
-  const  gotologin=()=> { 
+
+  const gotologin = () => {
     setCreateAcc(false)
-  
   }
   return (
     <div
@@ -51,7 +49,13 @@ const Signup = () => {
         <div className="text-center flex flex-col justify-center items-center w-[50%] gap-4">
           <p className="font-bold text-xl">Sign Up</p>
 
-          <form className="max-w-sm mx-auto flex w-full  flex-col  ">
+          <form
+            className="max-w-sm mx-auto flex w-full  flex-col  "
+            onSubmit={(e) => {
+              e.preventDefault()
+              addtodb()
+            }}
+          >
             <div className="mb-5 text-lg   text-start">
               <label>Name</label>
               <input
@@ -120,7 +124,7 @@ const Signup = () => {
               </label>
             </div>
             <button
-            onClick={()=>addtodb()}
+              // onClick={()=>addtodb()}
               type="submit"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
