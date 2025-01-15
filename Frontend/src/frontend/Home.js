@@ -20,7 +20,7 @@ const Browsecollection = () => {
         <Navbar/>
         </div>
         
-    <div   className='h-screen flex justify-center   items-center w-full pl-[4rem] pt-[12rem]    bg-center text-white text-center md:h-lvh '>
+    <div   className='h-screen flex justify-center    items-center w-full pl-[4rem] pt-[12rem]    bg-center text-white text-center md:h-lvh '>
       
         <div className='  w-[40%] text-center font-bold text-5xl flex flex-col gap-9 items-center'>
         <p className='leading-snug  text-black italic'>Make Your Home more <span className='text-[#00ADB5]'>Beautiful</span> with Our Aesthetic<span className='text-[#00ADB5]'> Wood Furniture Collection</span></p>
