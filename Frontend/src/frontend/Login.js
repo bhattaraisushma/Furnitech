@@ -33,7 +33,10 @@ navigate('/mainpage')
          <div className='text-center flex flex-col justify-center items-center w-[50%] gap-4'>
          <p className='font-bold text-xl'>Log in</p>
    
-   <form className="max-w-sm mx-auto flex w-full  flex-col  ">
+   <form className="max-w-sm mx-auto flex w-full  flex-col  "  onSubmit={(e) => {
+    e.preventDefault();
+  gotoMain()
+  }}>
    
      <div className="mb-5 text-2xl ">
      
@@ -49,7 +52,7 @@ navigate('/mainpage')
        </div>
        <label for="remember" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
      </div>
-     <button type="submit" onClick={gotoMain} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+     <button type="submit"  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
    
    </form>
    
