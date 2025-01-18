@@ -5,11 +5,13 @@ import Context from './ContexAPI/Contex'
 import Signup from './Signup'
 import axios from 'axios'
 import { set } from 'react-hook-form'
+import CircularIndeterminate from '../components/ui/Progress'
 const Login = () => {
   const{ createAcc,setCreateAcc,islogged,setIslogged  }=useContext(Context)
   const[email,setEmail]=useState('')
   const[password,setPassword]=useState('')
 const [hasAccount,setHasAccount]=useState(true)
+const [isloading,setIsloading]=useState(false)
   // const[confirmPassword,setConfirmPassword]=useState('')
   const navigate = useNavigate()
   const gotosignin=()=>{
@@ -18,7 +20,8 @@ const [hasAccount,setHasAccount]=useState(true)
 
  
   const gotoMain=async()=>{
-    alert(email,password)
+    // alert(email,password)
+    setIsloading(true)
 try{
  
   const allUser=await axios.get("http://localhost:5000/loginDetails");
@@ -45,7 +48,9 @@ catch(err){
 
   }
   return (
+   
     <div className='h-screen w-screen  flex justify-center items-center 'id='/login'>
+      
          <div className='h-[40rem] w-[80rem] flex flex-row  justify-between  shadow-2xl'>
    
       <div className=' h-full w-[50%] flex  flex-col justify-center items-center  gap-8 bg-[#00adb5]'>
@@ -60,7 +65,7 @@ catch(err){
    
       </div>
          <div className='text-center flex flex-col justify-center items-center w-[50%] gap-4'>
-         <p className='font-bold text-xl'>Log in</p>
+         <p className='font-bold text-xl'>Log in with your Credentials</p>
    
    <form className="max-w-sm mx-auto flex w-full  flex-col  "  onSubmit={(e) => {
     e.preventDefault();
@@ -82,7 +87,11 @@ catch(err){
        <label for="remember" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
      </div>
      {hasAccount===false && <div className='text-red-500'>Invalid credentials</div>}
-     <button type="submit"  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+    
+     <button type="submit"  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      {isloading && hasAccount? <CircularIndeterminate/>:
+      <p>Submit</p> }
+     </button>
    
    </form>
    

@@ -3,21 +3,26 @@ import { useNavigate } from 'react-router-dom'
 import Context from './ContexAPI/Contex'
 import axios from 'axios'
 import { set } from 'react-hook-form'
+import CircularIndeterminate from '../components/ui/Progress'
 const Signup = () => {
-  const { createAcc, setCreateAcc } = useContext(Context)
+  const { createAcc, setCreateAcc, isLogged, setIslogged } = useContext(Context)
   const [name, setName] = useState('')
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [buttonclicked, setButtonclicked] = useState(false)
+  const [isCreating,setIsCreating]=useState(false)
   console.log(name, email, password, confirmPassword, 'from signup ')
 
   const navigate = useNavigate()
 
   const addtodb = async () => {
+   
     setButtonclicked(true)
+   
     // alert(name + email + password)
+    if (password == confirmPassword) {
     try {
       await axios.post(
         'http://localhost:5000/signupDetails',
@@ -33,13 +38,17 @@ const Signup = () => {
           },
         },
       )
-      setCreateAcc(false)
+      setIslogged(true)
+    
+   
       console.log(' signup data added tp db')
-    } catch (err) {
+      navigate('/mainpage')
+    } 
+  catch (err) {
       console.log(err)
     }
-  }
-
+  }}
+  
   const gotologin = () => {
     setCreateAcc(false)
   }
@@ -132,10 +141,11 @@ const Signup = () => {
             </div>
             <button
               // onClick={()=>addtodb()}
-              type="submit"
+              // type="submit"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Submit
+                 {isCreating ? <CircularIndeterminate/>:<p>  Submit</p>
+}
             </button>
           </form>
         </div>
