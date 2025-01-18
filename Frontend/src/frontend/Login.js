@@ -4,10 +4,13 @@ import { useNavigate} from 'react-router-dom'
 import Context from './ContexAPI/Contex'
 import Signup from './Signup'
 import axios from 'axios'
+import { set } from 'react-hook-form'
 const Login = () => {
   const{ createAcc,setCreateAcc,islogged,setIslogged  }=useContext(Context)
   const[email,setEmail]=useState('')
   const[password,setPassword]=useState('')
+const [hasAccount,setHasAccount]=useState(true)
+  // const[confirmPassword,setConfirmPassword]=useState('')
   const navigate = useNavigate()
   const gotosignin=()=>{
     setCreateAcc(true)
@@ -29,7 +32,8 @@ console.log(matchingdata)
   navigate('/mainpage')
   }
   else{
-    alert('Invalid credentials')
+setHasAccount(false)
+    // alert('Invalid credentials')
   }
 }
 
@@ -77,6 +81,7 @@ catch(err){
        </div>
        <label for="remember" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
      </div>
+     {hasAccount===false && <div className='text-red-500'>Invalid credentials</div>}
      <button type="submit"  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
    
    </form>

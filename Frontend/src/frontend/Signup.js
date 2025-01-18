@@ -2,19 +2,22 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Context from './ContexAPI/Contex'
 import axios from 'axios'
+import { set } from 'react-hook-form'
 const Signup = () => {
   const { createAcc, setCreateAcc } = useContext(Context)
   const [name, setName] = useState('')
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [confirmpassword, setConfirmpassword] = useState('')
-  console.log(name, email, password, confirmpassword, 'from signup ')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [buttonclicked, setButtonclicked] = useState(false)
+  console.log(name, email, password, confirmPassword, 'from signup ')
 
   const navigate = useNavigate()
 
   const addtodb = async () => {
-    alert(name + email + password)
+    setButtonclicked(true)
+    // alert(name + email + password)
     try {
       await axios.post(
         'http://localhost:5000/signupDetails',
@@ -99,12 +102,16 @@ const Signup = () => {
               <input
                 type="password"
                 id="password"
-                value={confirmpassword}
-                onChange={(e) => setConfirmpassword(e.target.value)}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="password"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block h-[3rem] w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
               />
+
+           {
+              buttonclicked && password !== confirmPassword && <p className='text-red-500'>passwords do not match</p>
+         }
             </div>
             <div className="flex items-start mb-5">
               <div className="flex items-center h-5">
