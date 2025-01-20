@@ -4,12 +4,10 @@ import Home from './frontend/Home'
 import Products from './frontend/After login/Products'
 import Features from './frontend/Features'
 import Collection from './frontend/Collection'
-
 import {ContextProvider} from './frontend/ContexAPI/Contex'
 import Mainpage from './frontend/After login/Mainpage'
 import Yourcart from './frontend/After login/Yourcart'
-import Login from './frontend/Login'
-import Signup from './frontend/Signup'
+
 import LogorSign from './frontend/LogorSign'
 const App = () => {
   return (

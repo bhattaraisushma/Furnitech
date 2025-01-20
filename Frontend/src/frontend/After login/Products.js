@@ -3,26 +3,28 @@ import { productdetail } from '../../data'
 import Filter from '../Filter'
 import { useContext } from 'react'
 import Context from '../ContexAPI/Contex'
-
+import { set } from 'react-hook-form'
 
 
 
 const Products = () => {
-  
+  const {addedToCart, setAddedToCart} =useContext(Context)
     const {cartlist,setCartlist} =useContext(Context)
 
     const addtocart =(product)=>{
         console.log(product)
 setCartlist([...cartlist,product])
+setAddedToCart(true)
     }
     console.log(cartlist)
   return (
   
     <div>
         
+        
            <div className='flex flex-row justify-between font-bold text-3xl pb-5'>
       <h1>Trending Products</h1>
-     
+
       <Filter/>
       </div>
       <div className='  w-full grid grid-cols-5 gap-9 text-black '>

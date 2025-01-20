@@ -2,7 +2,8 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Context from './ContexAPI/Contex'
 import axios from 'axios'
-import { set } from 'react-hook-form'
+
+
 import CircularIndeterminate from '../components/ui/Progress'
 const Signup = () => {
   const { createAcc, setCreateAcc, isLogged, setIslogged } = useContext(Context)
@@ -22,7 +23,7 @@ const Signup = () => {
     setButtonclicked(true)
    
     // alert(name + email + password)
-    if (password == confirmPassword) {
+    if (password === confirmPassword) {
     try {
       await axios.post(
         'http://localhost:5000/signupDetails',
@@ -141,7 +142,7 @@ const Signup = () => {
             </div>
             <button
               // onClick={()=>addtodb()}
-              // type="submit"
+              type="submit"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
                  {isCreating ? <CircularIndeterminate/>:<p>  Submit</p>
@@ -160,6 +161,7 @@ const Signup = () => {
             className="text-white bg-transparent   hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Sign in
+     
           </button>
         </div>
       </div>
