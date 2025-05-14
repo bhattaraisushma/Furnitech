@@ -27,7 +27,7 @@ const Signup = () => {
     if (password === confirmPassword) {
     try {
       await axios.post(
-        'http://localhost:5000/signupDetails',
+        'https://furnitech-backend.onrender.com/signupDetails',
 
         {
           name,

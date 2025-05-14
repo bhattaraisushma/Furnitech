@@ -25,7 +25,7 @@ const [isloading,setIsloading]=useState(false)
     setIsloading(true)
 try{
  
-  const allUser=await axios.get("http://localhost:5000/loginDetails");
+  const allUser=await axios.get("https://furnitech-backend.onrender.com/loginDetails");
   console.log(allUser.data)
 
 const matchingdata=allUser.data.find((user)=>user.email===email && user.password===password)
