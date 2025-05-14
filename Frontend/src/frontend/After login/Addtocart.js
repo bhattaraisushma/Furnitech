@@ -1,9 +1,9 @@
 import React from 'react'
-
+import { Toaster } from '@/components/ui/toaster'
 const Addtocart = () => {
   return (
-    <div>
-      
+    <div id='/addtocart'>
+      <Toaster/>
     </div>
   )
 }

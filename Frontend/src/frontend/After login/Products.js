@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { productdetail } from '../../data'
 import Filter from '../Filter'
 import { useContext } from 'react'
 import Context from '../ContexAPI/Contex'
 import { set } from 'react-hook-form'
+import { useNavigate} from 'react-router'
+import { toast } from "sonner"
 
 
 
 const Products = () => {
+    const navigate = useNavigate()
   const {addedTOCart, setAddedTOCart} =useContext(Context)
     const {cartlist,setCartlist} =useContext(Context)
 
@@ -15,11 +18,27 @@ const Products = () => {
         console.log(product)
 setCartlist([...cartlist,product])
 setAddedTOCart(true)
+console.log(addedTOCart)
     }
     console.log(cartlist)
+
+
+    useEffect(()=>{
+        if(addedTOCart){
+            toast("Product added to cart", {
+                // description: "Product added to cart",
+                action: {
+                  label: "CLOSE",
+               
+                },
+              })
+        }
+        setAddedTOCart(false)
+    },[addedTOCart])
+   
   return (
   
-    <div>
+    <div className=' mb-[5rem] '>
         
         
            <div className='flex flex-row justify-between font-bold text-3xl pb-5'>
@@ -27,6 +46,8 @@ setAddedTOCart(true)
 
       <Filter/>
       </div>
+    
+
       <div className='  w-full grid grid-cols-5 gap-9 text-black '>
         {productdetail.map((product) => (
             <div key={product.key} className="w-full max-w-sm bg-white border border-gray-200  hover:scale-105 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -63,13 +84,15 @@ setAddedTOCart(true)
                     <span className="text-3xl font-bold text-gray-900 dark:text-white">{product.price}</span>
                 <a href="#" className="text-white bg-[#00ADB5] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"   onClick={() => addtocart(product)}>Add to cart</a>
                 </div>
+           
             </div>
         </div>
            
         ))}
+        
       </div>
     </div>
   )
 }
-
+ 
 export default Products

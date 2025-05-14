@@ -9,6 +9,7 @@ import Mainpage from './frontend/After login/Mainpage'
 import Yourcart from './frontend/After login/Yourcart'
 
 import LogorSign from './frontend/LogorSign'
+import { Toaster } from './components/ui/sonner'
 const App = () => {
   return (
     <div className='overflow-hidden'>
@@ -27,7 +28,7 @@ const App = () => {
 </Routes>
 
 </Router>
-
+<Toaster/>
 
 </ContextProvider>
 
