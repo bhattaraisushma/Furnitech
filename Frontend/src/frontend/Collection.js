@@ -24,13 +24,13 @@ navigate('/logorsign')
 <Navbar/>
 
     
-    <div className=' h-[40rem] w-full font-bold  text-4xl text-[#155e75] mt-[6rem]  pb-[10rem] px-[6rem] relative ' >
-            {/* <img src='/bg.jpg'className=' h-[40rem] inset-0 w-full z-0  absolute object-cover  shadow-2xl'></img>
+    <div className=' h-[28rem]  z-0 w-fit  text-[#155e75] mt-[6rem]  flex items-center justify-center   align-middle px-[6rem] ' >
+            {/* <img src='/bg.jpg'className=' h-[40rem] inset-0 w-full z-0  absol ute object-cover  shadow-2xl'></img>
             */}
       <Imagecorusel/>
              </div>
              
-     <div className='h-fit w-full  bg-white  pt-[10rem] px-[6rem] ' id='/collection'>
+     <div className='h-fit w-full  bg-white  pt-[2rem] px-[6rem] ' id='/collection'>
       <div className='flex flex-row justify-between font-bold text-3xl pb-5'>
       <h1>Trending Products</h1>
       <Filter/>
@@ -68,7 +68,7 @@ navigate('/logorsign')
                     <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">5.0</span>
                 </div>
                 <div className="flex items-center justify-between">
-                    <span className="text-3xl font-bold text-gray-900 dark:text-white">{product.price}</span>
+                    <span className="text-xl font-bold text-gray-900 dark:text-white">{product.price}</span>
                     <a href="#" className="text-white bg-[#00ADB5] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={dologin}>Add to cart</a>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -8,7 +9,12 @@ import {
     DropdownMenuTrigger,
   } from "../components/ui/dropdown-menu"
   import { UserIcon } from 'lucide-react'
+
 const Userprofile = () => {
+  const navigate = useNavigate()
+  const logout = () => {
+    navigate('/collection')
+  }
   return (
     <div>
       <DropdownMenu>
@@ -20,6 +26,8 @@ const Userprofile = () => {
     <DropdownMenuItem>Billing</DropdownMenuItem>
     <DropdownMenuItem>Team</DropdownMenuItem>
     <DropdownMenuItem>Subscription</DropdownMenuItem>
+ 
+    <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
   </DropdownMenuContent>
 </DropdownMenu>
 

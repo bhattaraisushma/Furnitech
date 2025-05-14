@@ -20,7 +20,7 @@ useEffect(()=>{
     // description: "Product added to cart",
     action: {
       label: "CLOSE",
-      duration: 3000,
+      duration: 2000,
      
    
     },
