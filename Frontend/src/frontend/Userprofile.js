@@ -9,11 +9,14 @@ import {
     DropdownMenuTrigger,
   } from "../components/ui/dropdown-menu"
   import { UserIcon } from 'lucide-react'
-
+import { useContext } from 'react'
+import Context from './ContexAPI/Contex'
 const Userprofile = () => {
+  const {islogged, setIslogged}=useContext(Context)
   const navigate = useNavigate()
   const logout = () => {
     navigate('/collection')
+    setIslogged(false)
   }
   return (
     <div>
