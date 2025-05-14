@@ -6,6 +6,7 @@ import Context from '../ContexAPI/Contex'
 import { set } from 'react-hook-form'
 import { useNavigate} from 'react-router'
 import { toast } from "sonner"
+import { use } from 'react'
 
 
 
@@ -25,10 +26,13 @@ console.log(addedTOCart)
 
     useEffect(()=>{
         if(addedTOCart){
+            
             toast("Product added to cart", {
                 // description: "Product added to cart",
                 action: {
                   label: "CLOSE",
+                  duration: 3000,
+                 
                
                 },
               })

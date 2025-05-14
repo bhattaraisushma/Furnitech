@@ -5,6 +5,7 @@ import axios from 'axios'
 
 
 import CircularIndeterminate from '../components/ui/Progress'
+import { toast } from 'sonner'
 const Signup = () => {
   const { createAcc, setCreateAcc, isLogged, setIslogged } = useContext(Context)
   const [name, setName] = useState('')
@@ -40,8 +41,6 @@ const Signup = () => {
         },
       )
       setIslogged(true)
-    
-   
       console.log(' signup data added tp db')
       navigate('/mainpage')
     } 
@@ -53,6 +52,7 @@ const Signup = () => {
   const gotologin = () => {
     setCreateAcc(false)
   }
+ 
   return (
     <div
       className="h-screen w-screen  flex justify-center items-center "

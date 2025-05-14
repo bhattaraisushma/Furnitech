@@ -20,6 +20,7 @@ const Yourcart = () => {
 
     <div className='px-[5rem]  w-screen '>
 <Navigation/>
+
     {cartlist.length==0 ? (<div className='flex  justify-center   h-screen items-center text-center  '>
       <div className='flex  flex-col justify-center items-center gap-9 w-[30rem] text-center'>
        <span className='flex flex-row gap-4 justify-center items-center text-4xl font-bold'> Your Cart is Empty<ShoppingBagIcon/></span>
@@ -28,18 +29,18 @@ const Yourcart = () => {
       </div>
     </div>) :
     (
-    <div className='flex flex-col gap-5 shadow-lg '>
+    <div className='flex flex-row shadow-lg  gap-6 h-full w-screen bg-purple'>
      { cartlist.map((list)=>{
         return(
          
 
-          <div className="w-[40rem]   h-[18rem]  flex flex-row bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-110">
+          <div className="w-fit   flex flex-row bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-110">
           <div className=''>
-              <img className="p-8 rounded-t-lg h-[18rem] py-4 " src={list.image1} alt="product image" />
+              <img className="p-8 rounded-t-lg h-[10rem] py-4 " src={list.image1} alt="product image" />
           </div>
           <div className="mx-5 my-5" >
               <a href="#">
-                  <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{list.title}</h5>
+                  <h5 className="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">{list.title}</h5>
               </a>
               <div className="flex items-center justify-start text-center mt-2.5 mb-5">
                   <div className="flex items-center space-x-1 rtl:space-x-reverse">
@@ -62,7 +63,7 @@ const Yourcart = () => {
                   <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">5.0</span>
               </div>
               <div className="flex flex-row gap-4">
-                  <span className="text-3xl font-bold text-gray-900 dark:text-white">{list.price}</span>
+                  <span className="text-xl font-bold text-gray-900 dark:text-white">{list.price}</span>
                   <span className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"onClick={()=>removefromcart(list)} >Remove</span>
               </div>
           </div>
