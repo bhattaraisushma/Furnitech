@@ -7,12 +7,15 @@ const Navigation = () => {
     const gocart =()=>{
         navigate('/cart')
           }
+          const gotoshop =()=>{
+            navigate('/mainpage')
+          }
   return (
     <div>
          <div className='h-[6rem] w-full flex flex-row justify-between items-center  shadow-lg px-10 mb-16 text-2xl' >
           <div className=' font-semibold font-font-title text-[3rem]'>Furni</div>
           <div className='flex  flex-row gap-5 justify-center'>
-            <h1>Shop</h1>
+            <button onClick={gotoshop}>Shop </button>
             <h1>FAQ</h1>
             <h1>Magazine</h1>
           </div>

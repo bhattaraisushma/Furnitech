@@ -8,13 +8,13 @@ import { set } from 'react-hook-form'
 
 
 const Products = () => {
-  const {addedToCart, setAddedToCart} =useContext(Context)
+  const {addedTOCart, setAddedTOCart} =useContext(Context)
     const {cartlist,setCartlist} =useContext(Context)
 
     const addtocart =(product)=>{
         console.log(product)
 setCartlist([...cartlist,product])
-setAddedToCart(true)
+setAddedTOCart(true)
     }
     console.log(cartlist)
   return (

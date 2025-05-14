@@ -41,7 +41,7 @@ setHasAccount(false)
 }
 
 catch(err){
-  console.log("Cannot get users");
+  console.log( err,"Cannot get users");
 }
 
     

@@ -8,6 +8,7 @@ const Navbar = () => {
   const navigate=useNavigate()
 
   const login=()=>{
+    navigate('/login')
     console.log(islogged)
     
 
